@@ -1,0 +1,5 @@
+<robot name="sia_agv3" xmlns:xacro="http://wiki.ros.org/xacro">
+    <xacro:include filename="sia_717.urdf.xacro" />
+    <xacro:include filename="sia_controller.urdf.xacro" />
+    <xacro:include filename="sia_laser.urdf.xacro" />
+</robot>
