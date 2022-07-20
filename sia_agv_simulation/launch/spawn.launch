@@ -1,21 +1,42 @@
 <launch>
+
+  <arg name="robot" default="sia_agv"/>
+  <arg name="debug" default="false"/>
+  <arg name="gui" default="true"/>
+  <arg name="headless" default="false"/>
+
   <arg name="x" default="0.0" />
   <arg name="y" default="0.0" />
   <arg name="z" default="0.679" />
-  <arg name="yaw" default="-3.1" />
+  <arg name="yaw" default="0" />
 
   <rosparam file="$(find sia_agv_simulation)/config/sia_agv_controller.yaml" command="load"/>
   <!-- 将 Urdf 文件的内容加载到参数服务器 -->
   <param name="robot_description" command="$(find xacro)/xacro $(find sia_agv_simulation)/urdf/sia_agv_gazebo.urdf.xacro" />
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="$(find sia_agv_simulation)/worlds/box.world"/>
+    <arg name="debug" value="$(arg debug)" />
+    <arg name="gui" value="$(arg gui)" />
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="headless" value="$(arg headless)"/>
   </include>
-  <node name="tf_footprint_base" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 base_link base_footprint 40" />
-  <node name="fake_joint_calibration" pkg="rostopic" type="rostopic" args="pub /calibrated std_msgs/Bool true" />
+  <!-- <node name="tf_footprint_base" pkg="tf" type="static_transform_publisher" args="0 0 0.679 0 0 0 base_link base_footprint 40" />
+  <node name="fake_joint_calibration" pkg="rostopic" type="rostopic" args="pub /calibrated std_msgs/Bool true" /> -->
+
+
+
+
+  <!--Load controllers-->
+  <!-- <node name="spawner" pkg="controller_manager" type="spawner" respawn="false"
+    output="screen" ns="/sia_agv" args="joint_state_controller "/>  -->
+
+
   <!-- 启动 gazebo -->
 
 
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" ns="/sia_agv" respawn="false" output="screen">
+    <param name="publish_frequency" value="20.0"/>
     <remap from="/joint_states" to="/sia_agv/joint_states" />
   </node>
 

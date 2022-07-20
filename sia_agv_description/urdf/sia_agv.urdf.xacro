@@ -88,7 +88,7 @@
       <limit lower="-${PI}" upper="${PI}" effort="0" velocity="0" />
     </joint>
   </xacro:macro>
-  <!-- 万象轮 -->
+  <!-- 万向轮 -->
   <xacro:macro name="universial_wheel_func" params="wheel_name flag">
     <link name="${wheel_name}_wheel">
       <inertial>
