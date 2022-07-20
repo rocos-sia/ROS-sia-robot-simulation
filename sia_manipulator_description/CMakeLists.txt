@@ -104,7 +104,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES sia_robot
- CATKIN_DEPENDS roscpp rospy std_msgs urdf xacro
+ CATKIN_DEPENDS urdf xacro
 #  DEPENDS system_lib
 )
 

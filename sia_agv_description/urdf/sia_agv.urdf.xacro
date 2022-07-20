@@ -19,7 +19,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://sia_agv3/meshes/agv_universal_wheel_hinge.dae" />
+          <mesh filename="package://sia_agv_description/meshes/agv_universal_wheel_hinge.dae" />
         </geometry>
       </visual>
     </link>
@@ -43,7 +43,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://sia_agv3/meshes/agv_universal_wheel_hinge.dae" />
+          <mesh filename="package://sia_agv_description/meshes/agv_universal_wheel_hinge.dae" />
         </geometry>
       </visual>
     </link>
@@ -67,7 +67,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://sia_agv3/meshes/agv_drive_wheel.dae" />
+          <mesh filename="package://sia_agv_description/meshes/agv_drive_wheel.dae" />
         </geometry>
         <material name="">
           <color rgba="1 1 0.501960784313725 1" />
@@ -99,7 +99,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://sia_agv3/meshes/agv_universal_wheel.dae" />
+          <mesh filename="package://sia_agv_description/meshes/agv_universal_wheel.dae" />
         </geometry>
       </visual>
       <collision>
@@ -130,7 +130,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://sia_agv3/meshes/agv_laser_link.dae" />
+          <mesh filename="package://sia_agv_description/meshes/agv_laser_link.dae" />
         </geometry>
         <material name="">
           <color rgba="1 1 0.501960784313725 1" />
@@ -155,7 +155,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://sia_agv3/meshes/agv_base_link.dae" />
+        <mesh filename="package://sia_agv_description/meshes/agv_base_link.dae" />
       </geometry>
       <material name="">
         <color rgba="1 1 1 1" />
