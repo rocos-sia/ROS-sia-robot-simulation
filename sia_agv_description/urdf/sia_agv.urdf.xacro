@@ -163,9 +163,21 @@
       <kinematic>1</kinematic>
     </visual>
     <collision>
+      <origin xyz="0 0.2765 -0.240" rpy="0 0 0" />
+      <geometry>
+        <box size="0.585 0.925 0.480" />
+      </geometry>
+    </collision>
+    <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <box size="0.925 0.585 0.67" />
+        <mesh filename="package://sia_agv_description/meshes/collisions/agv_base_link.stl" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0 0.2765 -0.5865" rpy="0 0 0" />
+      <geometry>
+        <box size="0.585 0.925 0.0525" />
       </geometry>
     </collision>
   </link>
