@@ -10,7 +10,7 @@
   <arg name="z" default="0.679" />
   <arg name="yaw" default="0" />
 
-  <rosparam file="$(find sia_agv_simulation)/config/sia_agv_controller.yaml" command="load"/>
+  <!-- <rosparam file="$(find sia_agv_simulation)/config/sia_agv_controller.yaml" command="load"/> -->
   <!-- 将 Urdf 文件的内容加载到参数服务器 -->
   <param name="robot_description" command="$(find xacro)/xacro $(find sia_agv_simulation)/urdf/sia_agv_gazebo.urdf.xacro" />
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
@@ -36,11 +36,14 @@
 
 
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" ns="/sia_agv" respawn="false" output="screen">
-    <param name="publish_frequency" value="20.0"/>
-    <remap from="/joint_states" to="/sia_agv/joint_states" />
+    <!-- <param name="publish_frequency" value="20.0"/> -->
+    <!-- <remap from="/joint_states" to="/sia_agv/joint_states" /> -->
   </node>
 
 
   <!-- 在 gazebo 中显示机器人模型 -->
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -model sia_agv -param robot_description -x $(arg x) -y $(arg y) -z $(arg z) -Y $(arg yaw)" />
+
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find sia_agv_simulation)/config/sia_agv_sim.rviz" output="screen"/>
+
 </launch>

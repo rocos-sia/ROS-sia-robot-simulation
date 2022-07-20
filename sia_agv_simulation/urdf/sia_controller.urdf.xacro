@@ -24,7 +24,7 @@
     <gazebo>
         <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
             <rosDebugLevel>Debug</rosDebugLevel>
-            <publishWheelTF>true</publishWheelTF>
+            <publishWheelTF>false</publishWheelTF>
             <robotNamespace>/sia_agv</robotNamespace>
             <publishTf>1</publishTf>
             <publishWheelJointState>true</publishWheelJointState>
@@ -41,6 +41,7 @@
             <commandTopic>cmd_vel</commandTopic>            <!-- 运动控制话题 -->
             <odometryFrame>odom</odometryFrame>
             <odometryTopic>odom</odometryTopic>            <!-- 里程计话题 -->
+            <publishOdomTF>true</publishOdomTF>
             <robotBaseFrame>base_link</robotBaseFrame>            <!-- 根坐标系 -->
         </plugin>
     </gazebo>
