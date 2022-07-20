@@ -1,0 +1,22 @@
+<package>
+  <name>ros_sia_robot_simulation</name>
+  <version>0.0.1</version>
+  <description>SIA Autonomous Robot Simualtion based on ROS</description>
+  <maintainer email="luoyang@sia.cn">Yang Luo</maintainer>
+
+  <license>BSD</license>
+
+  <!-- <url type="website">http://yluo.name</url>
+
+  <url type="bugtracker">http://yluo.name</url> -->
+
+  <author email="luoyang@sia.cn">Yang Luo</author>
+  <author email="jcsun@sia.cn">Jincheng Sun</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+ 
+  <export>
+    <metapackage/>
+  </export>
+</package>

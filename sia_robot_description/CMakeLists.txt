@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(sia_agv3)
+project(sia_robot_description)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -8,9 +8,6 @@ project(sia_agv3)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  gazebo_plugins
-  gazebo_ros
-  gazebo_ros_control
   urdf
   xacro
 )

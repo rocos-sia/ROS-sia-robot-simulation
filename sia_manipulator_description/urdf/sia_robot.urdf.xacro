@@ -1,0 +1,926 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" 
+ name="siasun_GCR10">
+
+<material name ="Blue">
+   <color rgba="0.137 0.49412 0.74902 1"/>
+ </material>
+<material name ="Black">
+   <color rgba="0 0 0 0.8"/>
+ </material>
+<material name ="Dark Blue">
+   <color rgba="0.098 0.098 0.439 1.0"/>
+ </material>
+<material name ="light Blue">
+   <color rgba="0.387 0.584 0.93 1.0"/>
+ </material>
+<material name ="White">
+   <color rgba="1 1 1 1"/>
+ </material>
+<material name ="Antique White">
+   <color rgba="0.98 0.92 0.84 1"/>
+ </material>
+<material name ="Dark Gray">
+   <color rgba="0.537 0.594 0.74902 1"/>
+ </material>
+<material name ="Gray">
+   <color rgba="0.537 0.594 0.74 1"/>
+ </material>
+ <material name ="Silver">
+    <color rgba="0.588 0.588 0.588 1"/>
+ </material>
+ <material name ="Red">
+    <color rgba="1.00 0 0 1.0"/>
+ </material>
+<link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.000543863853506091 0.282716810863512 -0.36138635137112"
+        rpy="0 0 0" />
+      <mass
+        value="29.2907917401275" />
+      <inertia
+        ixx="0.658416147229005"
+        ixy="0.000444325594903029"
+        ixz="-5.22965035739952E-05"
+        iyy="0.481294666894637"
+        iyz="0.000150147215019541"
+        izz="0.989603236439599" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://sia_robot/meshes/agv_base_link.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <box size="1 1 1" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="1_Link">
+    <inertial>
+      <origin
+        xyz="-8.14202632020283E-05 0.00610304740119338 -0.0161440698140209"
+        rpy="0 0 0" />
+      <mass
+        value="0.0728108307863773" />
+      <inertia
+        ixx="2.279226907759E-05"
+        ixy="-1.52431962880911E-07"
+        ixz="-1.17033639983441E-07"
+        iyy="2.43402166733781E-05"
+        iyz="1.19958125852891E-06"
+        izz="3.97943793169979E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://sia_robot/meshes/agv_axis1.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://sia_robot/meshes/agv_axis1.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="1-joint"
+    type="continuous">
+    <origin
+      xyz="-0.194 0.59539 -0.604"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="1_Link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="1-1_Link">
+    <inertial>
+      <origin
+        xyz="1.54128708518275E-07 -6.35365208223604E-07 -2.08668753956531E-07"
+        rpy="0 0 0" />
+      <mass
+        value="0.126066263473178" />
+      <inertia
+        ixx="3.69211700768695E-05"
+        ixy="1.59275080958781E-11"
+        ixz="-4.07947748521245E-10"
+        iyy="3.69211197129469E-05"
+        iyz="1.49202086216788E-09"
+        izz="6.47847031089787E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://sia_robot/meshes/agv_universal_wheel.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://sia_robot/meshes/agv_universal_wheel.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="1-1_joint"
+    type="continuous">
+    <origin
+      xyz="-0.0019416 0.019905 -0.0435"
+      rpy="1.5708 0 -1.4736" />
+    <parent
+      link="1_Link" />
+    <child
+      link="1-1_Link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="2_Link">
+    <inertial>
+      <origin
+        xyz="-0.000336543565982339 0.0067145336674802 -0.0138488838342261"
+        rpy="0 0 0" />
+      <mass
+        value="0.0773960442571589" />
+      <inertia
+        ixx="2.79271956658027E-05"
+        ixy="-2.09328673275462E-07"
+        ixz="-1.86296961191266E-07"
+        iyy="2.93597569308493E-05"
+        iyz="-2.80412358155225E-08"
+        izz="4.69036460817845E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://sia_robot/meshes/agv_axis2.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.854901960784314 0.854901960784314 0.854901960784314 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://sia_robot/meshes/agv_axis2.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="2-joint"
+    type="continuous">
+    <origin
+      xyz="0.194 0.59535 -0.6056"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="2_Link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="2-1_Link">
+    <inertial>
+      <origin
+        xyz="8.63289463803874E-08 -6.61745890639942E-07 2.14074135862496E-07"
+        rpy="0 0 0" />
+      <mass
+        value="0.126066298764299" />
+      <inertia
+        ixx="3.69211742911089E-05"
+        ixy="3.29619978086518E-12"
+        ixz="1.35062822981863E-10"
+        iyy="3.6921114726363E-05"
+        iyz="-1.54062454753047E-09"
+        izz="6.47847019668671E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://sia_robot/meshes/agv_universal_wheel.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://sia_robot/meshes/agv_universal_wheel.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="2-1_joint"
+    type="continuous">
+    <origin
+      xyz="-0.0028411 0.022783 -0.042013"
+      rpy="1.5807 0.069104 -1.4279" />
+    <parent
+      link="2_Link" />
+    <child
+      link="2-1_Link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="3_Link">
+    <inertial>
+      <origin
+        xyz="-6.93889390390723E-18 0 0.00168998379535312"
+        rpy="0 0 0" />
+      <mass
+        value="0.418358558488212" />
+      <inertia
+        ixx="0.000915617766712358"
+        ixy="3.32582077666032E-20"
+        ixz="1.88985288748301E-20"
+        iyy="0.000915617766712358"
+        iyz="-8.76135733408917E-21"
+        izz="0.00170660288564837" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://sia_robot/meshes/agv_drive_wheel.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://sia_robot/meshes/agv_drive_wheel.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="3_joint"
+    type="continuous">
+    <origin
+      xyz="-0.2595 0.2765 -0.605"
+      rpy="1.5708 0 -1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="3_Link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="4_Link">
+    <inertial>
+      <origin
+        xyz="6.12704331715008E-15 -4.79616346638068E-14 0.00282199284179585"
+        rpy="0 0 0" />
+      <mass
+        value="0.250538971616596" />
+      <inertia
+        ixx="0.000465816741663599"
+        ixy="5.65058656963556E-20"
+        ixz="3.31873042587156E-19"
+        iyy="0.000465816741663599"
+        iyz="-1.71216168600813E-20"
+        izz="0.000863128969172632" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://sia_robot/meshes/agv_drive_wheel.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://sia_robot/meshes/agv_drive_wheel.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="4_joint"
+    type="continuous">
+    <origin
+      xyz="0.2595 0.27512 -0.61343"
+      rpy="1.5708 0 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="4_Link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="5_Link">
+    <inertial>
+      <origin
+        xyz="0.00103770002703207 0.00601472892484933 -0.0161440697345775"
+        rpy="0 0 0" />
+      <mass
+        value="0.0728108309256295" />
+      <inertia
+        ixx="2.27892988966431E-05"
+        ixy="1.36495284501299E-07"
+        ixz="1.04643060411549E-07"
+        iyy="2.43431854614664E-05"
+        iyz="1.20072630984208E-06"
+        izz="3.97943785025612E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://sia_robot/meshes/agv_axis5.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://sia_robot/meshes/agv_axis5.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="5_joint"
+    type="continuous">
+    <origin
+      xyz="-0.18 -0.0885 -0.604"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="5_Link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="5-1_Link">
+    <inertial>
+      <origin
+        xyz="-2.5138800996416E-07 6.19546932312254E-07 1.74490358807733E-07"
+        rpy="0 0 0" />
+      <mass
+        value="0.126066317340043" />
+      <inertia
+        ixx="3.71313849029771E-05"
+        ixy="-1.09124836455106E-10"
+        ixz="-2.41105892440028E-06"
+        iyy="3.69211204624104E-05"
+        iyz="1.45526694390849E-09"
+        izz="6.45744854056141E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://sia_robot/meshes/agv_universal_wheel.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://sia_robot/meshes/agv_universal_wheel.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="5-1_joint"
+    type="continuous">
+    <origin
+      xyz="0.0017368 0.019924 -0.0435"
+      rpy="1.5708 0 -1.5708" />
+    <parent
+      link="5_Link" />
+    <child
+      link="5-1_Link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="6_Link">
+    <inertial>
+      <origin
+        xyz="0.000273986900293122 0.00609743706279098 -0.0161440693104884"
+        rpy="0 0 0" />
+      <mass
+        value="0.0728108291695974" />
+      <inertia
+        ixx="2.27797981840266E-05"
+        ixy="-6.14434156285646E-08"
+        ixz="-4.70056384567012E-08"
+        iyy="2.43526875822419E-05"
+        iyz="1.20436001342095E-06"
+        izz="3.97943792246835E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://sia_robot/meshes/agv_axis6.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://sia_robot/meshes/agv_axis6.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="6-joint"
+    type="continuous">
+    <origin
+      xyz="0.18 -0.0885 -0.604"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="6_Link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="6-1_Link">
+    <inertial>
+      <origin
+        xyz="-2.30745561546897E-09 -7.89610055118573E-09 -9.54958800924999E-09"
+        rpy="0 0 0" />
+      <mass
+        value="0.126061731217855" />
+      <inertia
+        ixx="3.69211695299971E-05"
+        ixy="1.52621131934903E-11"
+        ixz="-4.08287922080125E-10"
+        iyy="3.69211191221606E-05"
+        iyz="1.49225017362431E-09"
+        izz="6.47847033079185E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://sia_robot/meshes/agv_universal_wheel.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://sia_robot/meshes/agv_universal_wheel.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="6-1_joint"
+    type="continuous">
+    <origin
+      xyz="-0.00077959 0.019985 -0.0435"
+      rpy="1.5708 0 -1.5318" />
+    <parent
+      link="6_Link" />
+    <child
+      link="6-1_Link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="laser_Link">
+    <inertial>
+      <origin
+        xyz="6.33688978618485E-06 -5.59744645495797E-05 0.0278383378698622"
+        rpy="0 0 0" />
+      <mass
+        value="0.216211395934109" />
+      <inertia
+        ixx="0.000130773887841249"
+        ixy="2.26503861750725E-08"
+        ixz="-3.28530461658848E-08"
+        iyy="0.000130567645197807"
+        iyz="2.90267159366494E-07"
+        izz="0.000128913789383877" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://sia_robot/meshes/agv_laser_link.dae" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://sia_robot/meshes/agv_laser_link.dae" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="laser_joint"
+    type="continuous">
+    <origin
+      xyz="0 0.67006 -0.529"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="laser_Link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <!--duco-->
+  <link name="base_link_duco">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://sia_robot/meshes/GCR10/base.stl"/>
+      </geometry>
+      <material name ="Gray"/>
+    </visual>
+   <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://sia_robot/meshes/GCR10/base.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+<!--duco and agv-->
+<joint
+    name="joint_duco"
+    type="fixed">
+    <origin
+      xyz="0 0 -0.01"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="base_link_duco" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="${-pi}"
+      upper="${pi}"
+      effort="0"
+      velocity="0" />
+</joint>
+
+<!-- link_1 -->
+<link name="link_1">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://sia_robot/meshes/GCR10/link1.dae"/>
+      </geometry>
+      <material name ="Blue"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://sia_robot/meshes/GCR10/link1.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="12.369"/>
+      <inertia ixx="0.069552066" ixy="0.000045456" ixz="0.000067368" iyy="0.0682463" iyz="0.000262322" izz="0.054371276"/>
+    </inertial>
+  </link>
+<!-- joint_1 -->
+<joint name="joint_1" type="revolute">
+    <origin rpy="0 0 ${-pi/2}" xyz="0 0 0.155"/>
+    <parent link="base_link"/>
+    <child link="link_1"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="140" lower="${-pi}" upper="${pi}" velocity="${65*pi/180}"/>
+  </joint>
+<!-- link_2 -->
+<link name="link_2">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://sia_robot/meshes/GCR10/link2.dae"/>
+      </geometry>
+      <material name ="Gray"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://sia_robot/meshes/GCR10/link2.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+       <mass value="23.055"/>
+      <inertia ixx="0.097114219" ixy="0.000031977" ixz="0.096025722" iyy="3.624394224" iyz="-0.000010802" izz="3.614501336"/>
+    </inertial>
+  </link>
+<!-- joint_2 -->
+<joint name="joint_2" type="revolute">
+    <origin rpy="${-pi/2} ${-pi/2} 0" xyz="0 0.164 0"/>
+    <parent link="link_1"/>
+    <child link="link_2"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="140" lower="${-pi}" upper="${pi}" velocity="${65*pi/180}"/>
+  </joint>
+
+<!-- link_3 -->
+<link name="link_3">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://sia_robot/meshes/GCR10/link3.dae"/>
+      </geometry>
+     <material name ="Blue"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://sia_robot/meshes/GCR10/link3.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.000000 0.000000 0.000000"/>
+      <mass value="6.808"/>
+      <inertia ixx="0.112801117" ixy="-0.112801117" ixz="-0.317954508" iyy="1.672231427" iyz="0.000205154" izz="1.575646813"/>
+    </inertial>
+  </link>
+<!-- joint_3 -->
+<joint name="joint_3" type="revolute">
+    <origin rpy="0 0 0" xyz="0.608 0 0"/>
+    <parent link="link_2"/>
+    <child link="link_3"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="140.0" lower="${-160/180*pi}" upper="${160/180*pi}" velocity="${105*pi/180}"/>
+  </joint>
+<!-- link_4 -->
+<link name="link_4">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://sia_robot/meshes/GCR10/link4.dae"/>
+      </geometry>
+      <material name ="Gray"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://sia_robot/meshes/GCR10/link4.stl"/>
+       
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.000000 0.000000 0.000000"/>
+      <mass value="3.579"/>
+      <inertia ixx="0.010470895" ixy="0.000061784" ixz="0.00000228" iyy="0.006243529" iyz="-0.000040702" izz="0.010424802"/>
+    </inertial>
+  </link>
+<!-- joint_4 -->
+<joint name="joint_4" type="revolute">
+    <origin rpy="0 0 ${pi/2}" xyz="0.566 0 0"/>
+    <parent link="link_3"/>
+    <child link="link_4"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="140" lower="${-pi}" upper="${pi}" velocity="${165*pi/180}"/>
+  </joint>
+<!-- link_5 -->
+<link name="link_5">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://sia_robot/meshes/GCR10/link5.dae"/>
+      </geometry>
+     <material name ="Blue"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://sia_robot/meshes/GCR10/link5.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.000000 0.000000 0.000000"/>
+      <mass value="3.579"/>
+      <inertia ixx="0.010470895" ixy="0.000061784" ixz="-0.00000228" iyy="0.006243529" iyz="0.000040702" izz="0.010424802"/>
+    </inertial>
+  </link>
+<!-- joint_5 -->
+<joint name="joint_5" type="revolute">
+    <origin rpy="${pi/2} 0 0" xyz="0 -0.126 0"/>
+    <parent link="link_4"/>
+    <child link="link_5"/>
+    <axis xyz="0 0 1"/>
+    
+    <limit effort="140.0" lower="${-pi}" upper="${pi}" velocity="${165*pi/180}"/>
+  </joint>
+<!-- link_6 -->
+<link name="link_6">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://sia_robot/meshes/GCR10/link6.dae"/>
+      </geometry>
+      <material name ="Red"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://sia_robot/meshes/GCR10/link6.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.000000 0.000000 0.000000"/>
+      <mass value="0.477"/>
+      <inertia ixx="0.000742141" ixy="0.000000009" ixz="-0.000010713" iyy="0.000761498" iyz="0.000004274" izz="0.001029656"/>
+    </inertial>
+  </link>
+<!-- joint_6 -->
+<joint name="joint_6" type="revolute">
+    <origin rpy="${-pi/2} 0 0" xyz="0 0.113 0"/>
+    <parent link="link_5"/>
+    <child link="link_6"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="140.0" lower="${-pi}" upper="${pi}" velocity="${165*pi/180}"/>
+  </joint> 
+
+
+</robot>
