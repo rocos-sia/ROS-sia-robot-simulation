@@ -1,8 +1,0 @@
-prefix=/usr/local
-
-Name: sia_agv3
-Description: Description of sia_agv3
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
