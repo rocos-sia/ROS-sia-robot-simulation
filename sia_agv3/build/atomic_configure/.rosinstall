@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/sun/robot/sia/src/ROS_siasun_rboot/sia_agv3/build/devel/setup.sh

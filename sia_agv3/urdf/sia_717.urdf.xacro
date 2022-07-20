@@ -183,7 +183,7 @@
     <joint
       name="${laser_name}_joint" type="fixed">
       <origin
-        xyz="0 0.67006 -0.529" rpy="0 0 0" />
+        xyz="0 0.67006 -0.529" rpy="0 0 1.57" />
       <parent
         link="base_link" />
       <child
@@ -193,7 +193,7 @@
       <limit
         lower="-${PI}" upper="${PI}" effort="0" velocity="0" />
     </joint>
-</xacro:macro>
+  </xacro:macro>
 
   <link  name="base_link">
     <inertial>
