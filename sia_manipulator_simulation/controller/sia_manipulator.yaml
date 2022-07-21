@@ -1,0 +1,73 @@
+arm_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+     - shoulder_joint
+     - upper_arm_joint
+     - forearm_joint
+     - wrist_1_joint
+     - wrist_2_joint
+     - wrist_3_joint
+  gains:
+      shoulder_joint:   {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+      upper_arm_joint: {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+      forearm_joint:  {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+      wrist_1_joint:       {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+      wrist_2_joint:    {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+      wrist_3_joint:      {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+      
+
+  constraints:
+      goal_time: 0.6
+      stopped_velocity_tolerance: 0.05
+      shoulder_joint: {trajectory: 0.1, goal: 0.1}
+      upper_arm_joint: {trajectory: 0.1, goal: 0.1}
+      forearm_joint: {trajectory: 0.1, goal: 0.1}
+      wrist_1_joint: {trajectory: 0.1, goal: 0.1}
+      wrist_2_joint: {trajectory: 0.1, goal: 0.1}
+      wrist_3_joint: {trajectory: 0.1, goal: 0.1}
+  stop_trajectory_duration: 0.5
+  state_publish_rate:  25
+  action_monitor_rate: 10
+joint_group_position_controller:
+  type: position_controllers/JointGroupPositionController
+  joints:
+     - shoulder_joint
+     - upper_arm_joint
+     - forearm_joint
+     - wrist_1_joint
+     - wrist_2_joint
+     - wrist_3_joint
+                                                                  
+# #  2  Publish all joint states -----------------------------------
+#     joint_state_controller:
+#     type: joint_state_controller/JointStateController
+#     #   publish_rate: 50 
+   
+  #  arm_controllers :
+  #  type: joint_state_controller/JointStateController
+  #  publish_rate: 50
+  #   joint1_position_controller :
+  #    type: position_controllers/JointPositionController
+  #    joint: shoulder_joint
+  #    pid: {p: 100.0, i: 0.01, d: 10.0}
+  #   joint2_position_controller :
+  #     type: position_controllers/JointPositionController
+  #     joint: upper_arm_joint
+  #     pid: {p: 100.0, i: 0.01, d: 10.0}
+  #   joint3_position_controller :
+  #     type: position_controllers/JointPositionController
+  #     joint: forearm_joint
+  #     pid: {p: 100.0, i: 0.01, d: 10.0}
+  #   joint4_position_controller:
+  #     type: position_controllers/JointPositionController
+  #     joint: wrist_1_joint
+  #     pid: {p: 100.0, i: 0.01, d: 10.0}
+  #   joint5_position_controller:
+  #     type: position_controllers/JointPositionController
+  #     joint: wrist_2_joint
+  #     pid: {p: 100.0, i: 0.01, d: 10.0}
+  #   joint6_position_controller:
+  #     type: position_controllers/JointPositionController
+  #     joint: wrist_3_joint
+  #     pid: {p: 100.0, i: 0.01, d: 10.0}
+  

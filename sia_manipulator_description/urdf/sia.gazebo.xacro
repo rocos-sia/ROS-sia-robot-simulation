@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+
+  <xacro:macro name="sia_gazebo"  params="flag">
+
+    <gazebo reference="shoulder">
+      <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="upper_arm">
+      <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="forearm">
+      <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="wrist_1">
+      <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="wrist_2">
+      <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="wrist_3">
+      <selfCollide>true</selfCollide>
+    </gazebo>
+    <!-- <gazebo reference="${prefix}ee_link">
+      <selfCollide>true</selfCollide>
+    </gazebo> -->
+
+  </xacro:macro>
+
+</robot>
