@@ -7,7 +7,7 @@
   <!-- common stuff -->
   <xacro:include filename="$(find sia_manipulator_description)/urdf/common.gazebo.xacro" />
 
-  <!-- ur5 -->
+  
   <xacro:include filename="$(find sia_manipulator_description)/urdf/sia_manipulator.xacro" />
 
   <!-- arm -->
