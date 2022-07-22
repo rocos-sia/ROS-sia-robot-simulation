@@ -2,7 +2,7 @@
 <robot xmlns:xacro="http://wiki.ros.org/xacro"
        name="sia_manipulator" >
 
-  <xacro:arg name="transmission_hw_interface" default="PositionJointInterface"/>
+  <xacro:arg name="transmission_hw_interface" default="hardware_interface/PositionJointInterface"/>
 
   <!-- common stuff -->
   <xacro:include filename="$(find sia_manipulator_simulation)/urdf/common.gazebo.xacro" />
@@ -15,7 +15,7 @@
   
   <!-- arm -->
   <xacro:sia_gazebo  flag="-1"  />
-  <xacro:sia_arm_transmission  hw_interface="PositionJointInterface" />
+  <xacro:sia_arm_transmission  hw_interface="hardware_interface/PositionJointInterface" />
   <link name="world" />
 
   <joint name="world_joint" type="fixed">
