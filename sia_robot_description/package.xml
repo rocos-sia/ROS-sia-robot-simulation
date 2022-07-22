@@ -58,6 +58,8 @@
   <exec_depend>urdf</exec_depend>
   <exec_depend>xacro</exec_depend>
 
+  <depend>sia_agv_description</depend>
+  <depend>sia_manipulator_description</depend>
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>

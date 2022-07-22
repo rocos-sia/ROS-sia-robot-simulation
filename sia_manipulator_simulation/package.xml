@@ -67,6 +67,10 @@
   <exec_depend>urdf</exec_depend>
   <exec_depend>xacro</exec_depend>
 
+  <!--Format2 支持 depend直接作为build,build_export,exec的合集-->
+  <depend>rqt_joint_trajectory_controller</depend>
+  <depend>sia_manipulator_description</depend>
+
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>
