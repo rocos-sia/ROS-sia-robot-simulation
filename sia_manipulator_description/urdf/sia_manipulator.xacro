@@ -2,8 +2,7 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" 
  name="sia_manipulator">
 
-  <xacro:include filename="$(find sia_manipulator_description)/urdf/sia.gazebo.xacro" />
-  <xacro:include filename="$(find sia_manipulator_description)/urdf/sia.transmission.xacro" />
+  
   
   <material name ="Blue">
     <color rgba="0.137 0.49412 0.74902 1"/>
@@ -61,23 +60,23 @@
 
   <!-- shoulder -->
   <link name="shoulder">
-      <visual>
-        <origin rpy="0 0 0" xyz="0 0 0"/>
-        <geometry>
-          <mesh filename="package://sia_manipulator_description/meshes/link1.dae"/>
-        </geometry>
-        <material name ="Blue"/>
-      </visual>
-      <collision>
-        <origin rpy="0 0 0" xyz="0 0 0"/>
-        <geometry>
-          <mesh filename="package://sia_manipulator_description/meshes/link1.stl"/>
-        </geometry>
-      </collision>
-      <inertial>
-        <mass value="12.369"/>
-        <inertia ixx="0.069552066" ixy="0.000045456" ixz="0.000067368" iyy="0.0682463" iyz="0.000262322" izz="0.054371276"/>
-      </inertial>
+       <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://sia_manipulator_description/meshes/link1.dae"/>
+      </geometry>
+      <material name ="Blue"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://sia_manipulator_description/meshes/link1.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="12.369"/>
+      <inertia ixx="0.069552066" ixy="0.000045456" ixz="0.000067368" iyy="0.0682463" iyz="0.000262322" izz="0.054371276"/>
+    </inertial>
     </link>
   <!-- shoulder_joint -->
   <joint name="shoulder_joint" type="revolute">
@@ -240,8 +239,6 @@
       <axis xyz="0 0 1"/>
       <limit effort="140.0" lower="${-pi}" upper="${pi}" velocity="${165*pi/180}"/>
     </joint> 
-  <xacro:sia_gazebo  flag="-1"  />
-  <xacro:sia_arm_transmission  hw_interface="PositionJointInterface" />
-
-
+  
+  
 </robot>

@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://wiki.ros.org/xacro">
 
+
   <xacro:macro name="sia_gazebo"  params="flag">
 
     <gazebo reference="shoulder">

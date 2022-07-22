@@ -12,7 +12,7 @@
   </include>
 
   <!-- send robot urdf to param server -->
-  <include file="$(find sia_manipulator_description)/launch/sia_manipulator_load.launch">
+  <include file="$(find sia_manipulator_simulation)/launch/sia_manipulator_load.launch">
     
   </include>
 
@@ -22,10 +22,10 @@
   <include file="$(find sia_manipulator_simulation)/launch/controller.launch"/>
 
   
-  <rosparam file="$(find sia_manipulator_simulation)/controller/sia_manipulator.yaml" command="load"/>
-  <node name="arm_controller_spawner" pkg="controller_manager" type="controller_manager" args="spawn arm_controller" respawn="false" output="screen"/>
+  <!-- <rosparam file="$(find sia_manipulator_simulation)/controller/sia_manipulator.yaml" command="load"/>
+  <node name="arm_controller_spawner" pkg="controller_manager" type="controller_manager" args="spawn arm_controller" respawn="false" output="screen"/> -->
 
   
-  <node name="ros_control_controller_manager" pkg="controller_manager" type="controller_manager" respawn="false" output="screen" args="load joint_group_position_controller" /> 
+  <!-- <node name="ros_control_controller_manager" pkg="controller_manager" type="controller_manager" respawn="false" output="screen" args="load joint_group_position_controller" />  -->
 
 </launch>
