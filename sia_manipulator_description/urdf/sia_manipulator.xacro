@@ -41,7 +41,7 @@
       <visual>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <geometry>
-          <mesh filename="package://sia_manipulator_description/meshes/base.stl"/>
+          <mesh filename="package://sia_manipulator_description/meshes/base.dae"/>
         </geometry>
         <material name ="Gray"/>
       </visual>
