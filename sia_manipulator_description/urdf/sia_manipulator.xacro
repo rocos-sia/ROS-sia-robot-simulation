@@ -37,7 +37,8 @@
   </material>
   <!-- base_link -->
   <!-- 存在问题，质量惯性矩阵？ -->
-    <link name="base_link">
+  <!-- 更改base_link为duoco_base_link 方便和小车连接-->
+    <link name="duco_base_link">
       <visual>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <geometry>
@@ -81,7 +82,7 @@
   <!-- shoulder_joint -->
   <joint name="shoulder_joint" type="revolute">
       <origin rpy="0 0 ${-pi/2}" xyz="0 0 0.165"/>
-      <parent link="base_link"/>
+      <parent link="duco_base_link"/>
       <child link="shoulder"/>
       <axis xyz="0 0 1"/>
       <limit effort="140" lower="${-pi}" upper="${pi}" velocity="${65*pi/180}"/>

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="transmission_hw_interface" default="PositionJointInterface" />
+
+  <!-- <param name="robot_description" command="$(find xacro)/xacro inorder '$(find sia_manipulator_description)/urdf/sia_robot.urdf.xacro' transmission_hw_interface:=$(arg transmission_hw_interface)" /> -->
+  <param name="robot_description" command="$(find xacro)/xacro $(find sia_robot_simulation)/urdf/sia_robot_gazebo.xacro" />
+</launch>

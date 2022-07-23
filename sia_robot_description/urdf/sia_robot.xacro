@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro"
+       name="sia_robot" >
+
+  <xacro:arg name="transmission_hw_interface" default="hardware_interface/PositionJointInterface"/>
+
+    <!-- arm -->
+  <xacro:include filename="$(find sia_manipulator_description)/urdf/sia_manipulator.xacro" />
+
+  <xacro:include filename="$(find sia_agv_description)/urdf/sia_agv.urdf.xacro" />
+
+  
+
+  <joint name="connect_joint" type="fixed">
+    <origin xyz="0 0 -0.01" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="duco_base_link" />
+    <axis xyz="0 0 1" />
+    <limit lower="${-pi}" upper="${pi}" effort="0" velocity="0" />
+  </joint>
+
+  
+
+</robot>

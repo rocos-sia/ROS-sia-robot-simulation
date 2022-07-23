@@ -1,0 +1,11 @@
+<launch>
+    <!-- 将 Urdf 文件的内容加载到参数服务器 -->
+    <param name="robot_description" command="$(find xacro)/xacro $(find sia_robot_description)/urdf/sia_robot.xacro" />
+
+    <param name="use_gui" value="true"/>
+
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find sia_robot_description)/config/xacro.rviz" output="screen"/>
+
+</launch>
