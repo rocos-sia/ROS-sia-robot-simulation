@@ -28,7 +28,10 @@ arm_controller:
   stop_trajectory_duration: 0.5
   state_publish_rate:  50
   action_monitor_rate: 10
-
+  
+joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50 
 
 joint_group_position_controller:
   type: position_controllers/JointGroupPositionController

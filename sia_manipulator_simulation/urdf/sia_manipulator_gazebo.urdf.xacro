@@ -16,6 +16,7 @@
   <!-- arm -->
   <xacro:sia_gazebo  flag="-1"  />
   <xacro:sia_arm_transmission  hw_interface="hardware_interface/PositionJointInterface" />
+  <!-- <xacro:sia_arm_transmission  hw_interface="PositionJointInterface" /> -->
   <link name="world" />
 
   <joint name="world_joint" type="fixed">

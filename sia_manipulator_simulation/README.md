@@ -1,11 +1,57 @@
 # sia_manipulator_simulation
 
 6自由度协作机械臂的Gazebo仿真
-## 存在的问题
 
-1.机械臂没有加关节角度限制
-2.机械臂目前使用的是最简单的joint_state_controller
 
-## 改进方向
-1.模仿UR的仿真模型进行关节约束以及控制器的更换
-2.编写简单的节点发送关节信息，控制机械臂运动
+## 运行
+
+运行Gazebo仿真环境,默认为JointTrajectoryController运动控制器
+
+```bash
+$ cd /your/ros/workspace
+$ catkin_make
+$ source devel/setup.bash
+$ roslaunch sia_manipulator_simulation spawn.launch
+
+```
+## 运动控制器
+### joint_group_position_controller  
+#### 举例：五关节运动0.5rad
+```bash
+$ <arg name="joint_group_position_controller_flag" default="true"/>
+$ source devel/setup.bash
+$ roslaunch sia_manipulator_simulation spawn.launch
+$ rostopic pub -r 100 /joint_group_position_controller/command std_msgs/Float64MultiArray "layout:
+  dim:
+  - label: ''
+    size: 0
+    stride: 0
+  data_offset: 0
+data: [0,0,0,0,0.5,1]" 
+
+```
+### joint_position_controller  
+#### 举例：五关节运动0.5rad
+```bash
+$ arg name="joint_position_controller_flag" default="true"/>
+$ source devel/setup.bash
+$ roslaunch sia_manipulator_simulation spawn.launch
+$ rostopic pub /joint5_position_controller/command std_msgs/Float64 0.5
+
+```
+### JointTrajectoryController  
+```bash
+$ sudo apt install ros-noetic-rqt-joint-trajectory-controller
+$ <arg name="arm_controller_flag" default="true"/>
+$ source devel/setup.bash
+$ roslaunch sia_manipulator_simulation spawn.launch
+
+```
+## 常用指令
+```bash
+$ rostopic echo
+$ rosrun controller_manager controller_manager list
+$ rostopic pub
+$ rosrun controller_mansger spawner <控制器>
+
+```
