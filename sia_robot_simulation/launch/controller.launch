@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- Start joint-trajectory-controller-->
+  <rosparam file="$(find sia_robot_simulation)/controller/joint_state_controller.yaml" command="load"/>
+  <rosparam file="$(find sia_robot_simulation)/controller/sia_manipulator.yaml" command="load"/>
+
+
+</launch>
+

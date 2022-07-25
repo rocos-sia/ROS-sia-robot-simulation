@@ -1,0 +1,7 @@
+<robot name="sia_robot" xmlns:xacro="http://wiki.ros.org/xacro">
+    <!-- sia robot -->
+    <xacro:include filename="$(find sia_robot_description)/urdf/sia_robot.xacro" />
+
+    <xacro:include filename="$(find sia_robot_simulation)/urdf/common.gazebo.xacro" />
+
+</robot>
