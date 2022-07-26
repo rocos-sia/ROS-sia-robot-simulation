@@ -7,10 +7,10 @@
         <transmission name="${joint_name}_trans">
             <type>transmission_interface/SimpleTransmission</type>
             <joint name="${joint_name}">
-                <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             </joint>
             <actuator name="${joint_name}_motor">
-                <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
         </transmission>
@@ -19,6 +19,65 @@
     <!-- 每一个驱动轮都需要配置传动装置 -->
     <xacro:joint_trans joint_name="left_wheel_joint" />
     <xacro:joint_trans joint_name="right_wheel_joint" />
+
+
+    <gazebo reference="left_wheel">
+        <mu1>10000</mu1>
+        <mu2>10000</mu2>
+        <kp>500000.0</kp>
+        <kd>10.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <fdir1>1 0 0</fdir1>
+    </gazebo>
+
+    <gazebo reference="right_wheel">
+        <mu1>10000</mu1>
+        <mu2>10000</mu2>
+        <kp>500000.0</kp>
+        <kd>10.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <fdir1>1 0 0</fdir1>
+    </gazebo>
+
+    <gazebo reference="right_front_wheel">
+        <mu1>0.1</mu1>
+        <mu2>0.1</mu2>
+        <kp>1000000.0</kp>
+        <kd>100.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>1.0</maxVel>
+    </gazebo>
+
+    <gazebo reference="right_rear_wheel">
+        <mu1>0.1</mu1>
+        <mu2>0.1</mu2>
+        <kp>1000000.0</kp>
+        <kd>100.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>1.0</maxVel>
+    </gazebo>
+
+    <gazebo reference="left_front_wheel">
+        <mu1>0.1</mu1>
+        <mu2>0.1</mu2>
+        <kp>1000000.0</kp>
+        <kd>100.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>1.0</maxVel>
+    </gazebo>
+
+    <gazebo reference="left_rear_wheel">
+        <mu1>0.1</mu1>
+        <mu2>0.1</mu2>
+        <kp>1000000.0</kp>
+        <kd>100.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>1.0</maxVel>
+    </gazebo>
+
+
 
     <!-- 控制器 -->
     <gazebo>
@@ -47,10 +106,10 @@
     </gazebo>
 
     <gazebo>
-        <!-- <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
             <robotNamespace>/sia_agv</robotNamespace>
             <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
-        </plugin> -->
+        </plugin>
 
 
         <plugin name="joint_state_publisher" filename="libgazebo_ros_joint_state_publisher.so">
