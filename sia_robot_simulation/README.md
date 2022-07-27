@@ -39,3 +39,14 @@ roslaunch sia_agv3 demo.launch
 ### rviz启动
 roslaunch sia_agv3 demo1.launch
 
+## 运行
+
+运行Gazebo仿真环境
+
+```bash
+$ cd /your/ros/workspace
+$ catkin_make
+$ source devel/setup.bash
+$ roslaunch sia_robot_simulation sia_robot_simulation_on_gazebo.launch
+```
+

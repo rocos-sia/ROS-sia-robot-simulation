@@ -126,7 +126,12 @@ include_directories(
 # add_library(${PROJECT_NAME}
 #   src/${PROJECT_NAME}/sia_agv3.cpp
 # )
-
+catkin_install_python(PROGRAMS script/demo_sub.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+catkin_install_python(PROGRAMS script/demo_pub.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure

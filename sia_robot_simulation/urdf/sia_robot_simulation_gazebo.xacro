@@ -2,6 +2,6 @@
     <!-- sia robot -->
     <xacro:include filename="$(find sia_robot_description)/urdf/sia_robot.xacro" />
 
-    <xacro:include filename="$(find sia_robot_simulation)/urdf/common.gazebo.xacro" />
+    <xacro:include filename="$(find sia_robot_simulation)/urdf/sia_robot_on_gazebo.xacro" />
 
 </robot>

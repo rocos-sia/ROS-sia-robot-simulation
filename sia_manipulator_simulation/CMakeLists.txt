@@ -110,7 +110,9 @@ catkin_package(
 #  CATKIN_DEPENDS gazebo_plugins gazebo_ros gazebo_ros_control urdf xacro
 #  DEPENDS system_lib
 )
-
+catkin_install_python(PROGRAMS script/demo_sub.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
 ###########
 ## Build ##
 ###########

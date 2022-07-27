@@ -3,7 +3,7 @@
 
   <!-- Start joint-trajectory-controller-->
   <rosparam file="$(find sia_robot_simulation)/controller/joint_state_controller.yaml" command="load"/>
-  <rosparam file="$(find sia_robot_simulation)/controller/sia_manipulator.yaml" command="load"/>
+  <rosparam file="$(find sia_robot_simulation)/controller/sia_robot_manipulator.yaml" command="load"/>
 
   <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args=" joint_state_controller arm_controller"/>
 

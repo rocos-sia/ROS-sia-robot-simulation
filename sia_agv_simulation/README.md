@@ -12,7 +12,7 @@
 $ cd /your/ros/workspace
 $ catkin_make
 $ source devel/setup.bash
-$ roslaunch sia_agv_simulation spawn.launch
+$ roslaunch sia_agv_simulation sia_agv_sim_on_gazebo.launch
 ```
 
 让小车旋转起来

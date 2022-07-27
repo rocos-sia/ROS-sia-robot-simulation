@@ -1,6 +1,6 @@
 <launch>
     <!-- 将 Urdf 文件的内容加载到参数服务器 -->
-    <param name="robot_description" command="$(find xacro)/xacro $(find sia_agv_description)/urdf/sia_agv.urdf.xacro" />
+    <param name="robot_description" command="$(find xacro)/xacro $(find sia_agv_description)/urdf/sia_agv_on_rviz.urdf.xacro" />
 
     <param name="use_gui" value="true"/>
 

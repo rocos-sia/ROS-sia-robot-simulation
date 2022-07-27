@@ -3,7 +3,7 @@
  
     <param name="robot_description" command="$(find xacro)/xacro $(find sia_manipulator_description)/urdf/sia_manipulator.xacro" />
 
-    <node pkg="rviz" type="rviz" name="rviz"  args="-d $(find sia_manipulator_description)/config/xacro.rviz" required="true"/>
+    <node pkg="rviz" type="rviz" name="rviz"  args="-d $(find sia_manipulator_description)/config/sia_manipulator_description.rviz" required="true"/>
     
     <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher" output="screen" />
     <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen" />

@@ -11,7 +11,7 @@
 $ cd /your/ros/workspace
 $ catkin_make
 $ source devel/setup.bash
-$ roslaunch sia_manipulator_simulation spawn.launch
+$ roslaunch sia_manipulator_simulation sia_manipulator_sim_on_gazebo.launch
 
 ```
 ## 运动控制器
@@ -20,7 +20,7 @@ $ roslaunch sia_manipulator_simulation spawn.launch
 ```bash
 $ <arg name="joint_group_position_controller_flag" default="true"/>
 $ source devel/setup.bash
-$ roslaunch sia_manipulator_simulation spawn.launch
+$ roslaunch sia_manipulator_simulation sia_manipulator_sim_on_gazebo.launch
 $ rostopic pub -r 100 /joint_group_position_controller/command std_msgs/Float64MultiArray "layout:
   dim:
   - label: ''
@@ -35,7 +35,7 @@ data: [0,0,0,0,0.5,1]"
 ```bash
 $ arg name="joint_position_controller_flag" default="true"/>
 $ source devel/setup.bash
-$ roslaunch sia_manipulator_simulation spawn.launch
+$ roslaunch sia_manipulator_simulation sia_manipulator_sim_on_gazebo.launch
 $ rostopic pub /joint5_position_controller/command std_msgs/Float64 0.5
 
 ```
@@ -44,7 +44,7 @@ $ rostopic pub /joint5_position_controller/command std_msgs/Float64 0.5
 $ sudo apt install ros-noetic-rqt-joint-trajectory-controller
 $ <arg name="arm_controller_flag" default="true"/>
 $ source devel/setup.bash
-$ roslaunch sia_manipulator_simulation spawn.launch
+$ roslaunch sia_manipulator_simulation sia_manipulator_sim_on_gazebo.launch
 
 ```
 ## 常用指令

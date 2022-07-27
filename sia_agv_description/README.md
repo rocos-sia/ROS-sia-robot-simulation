@@ -10,5 +10,5 @@
 $ cd /your/ros/workspace
 $ catkin_make
 $ source devel/setup.bash
-$ roslaunch sia_agv_description display.launch
+$ roslaunch sia_agv_description sia_agv_description_rviz.launch
 ```
