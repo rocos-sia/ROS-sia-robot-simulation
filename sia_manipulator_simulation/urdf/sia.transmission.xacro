@@ -62,6 +62,15 @@
         <mechanicalReduction>1</mechanicalReduction>
       </actuator>
     </transmission>
+    <!-- <transmission name="ft_sensor_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="ft_sensor_joint">
+        <hardwareInterface>${hw_interface}</hardwareInterface>
+      </joint>
+      <actuator name="ft_sensor_motor">
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission> -->
 
   </xacro:macro>
 

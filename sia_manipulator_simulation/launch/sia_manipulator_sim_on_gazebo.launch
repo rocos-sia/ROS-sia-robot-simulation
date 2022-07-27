@@ -21,7 +21,7 @@
 
   <include file="$(find sia_manipulator_simulation)/launch/sia_manipulator_sim_controller.launch"/>
 
-
+  <node pkg="rviz" type="rviz" name="rviz"  args="-d $(find sia_manipulator_description)/config/sia_manipulator_with_ft_sensor.rviz" required="true"/>
  
   
   

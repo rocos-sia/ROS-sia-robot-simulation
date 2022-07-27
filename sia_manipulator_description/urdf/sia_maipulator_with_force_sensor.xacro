@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro"
+       name="sia_manipulator_with_force_sensor" >
+
+  
+ 
+
+  <xacro:include filename="$(find sia_manipulator_description)/urdf/sia_manipulator.xacro" />
+   <xacro:property name="force_sensor_radius" value="0.0295" /> <!-- base_footprint 半径  -->
+    <xacro:property name="force_sensor_mass" value="0.01" /> <!-- base_link 半径 -->
+    <xacro:property name="force_sensor_h" value="0.001" /> <!-- base_link 长 -->
+
+    <xacro:macro name="cylinder_inertial_matrix" params="m r h">
+        <inertial>
+            <mass value="${m}" />
+            <inertia ixx="${m*(3*r*r+h*h)/12}" ixy = "0" ixz = "0"
+                iyy="${m*(3*r*r+h*h)/12}" iyz = "0"
+                izz="${m*r*r/2}" /> 
+        </inertial>
+    </xacro:macro>
+
+    <link name="ft_sensor">
+        <visual>
+            <geometry>
+                <cylinder radius="${force_sensor_radius}" length="${force_sensor_h}" />
+            </geometry>
+            <origin xyz="0.0 0.0 0.0" rpy="0 0.0 0.0"/>
+            <material name="yellow">
+                <color rgba="0.5 0.3 0.0 0.5" />
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="${force_sensor_radius}" length="${force_sensor_h}" />
+            </geometry>
+            <origin xyz="0.0 0.0 0.0" rpy="0 0.0 0.0"/>
+        </collision>
+        <xacro:cylinder_inertial_matrix m="${force_sensor_mass}" r="${force_sensor_radius}" h="${force_sensor_h}" />
+    </link>
+ 
+    <joint name="ft_sensor_joint" type="fixed">
+        <origin xyz="0.0 0 0.0" rpy="0 0.0 0.0"/>
+        <parent link="wrist_3"/>
+        <child link="ft_sensor"/>
+        <axis xyz="0.0 0.0 0.0"/>
+        <limit effort="140.0" lower="${-pi}" upper="${pi}" velocity="${165*pi/180}"/>
+    </joint>
+ 
+
+    <gazebo reference="ft_sensor_joint">
+        <provideFeedback>true</provideFeedback>
+        <disableFixedJointLumping>true</disableFixedJointLumping>
+    </gazebo>
+ 
+    <!-- The ft_sensor plugin -->
+    <gazebo>
+        <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
+            <updateRate>100.0</updateRate>
+            <topicName>ft_sensor_topic</topicName>
+            <jointName>ft_sensor_joint</jointName>
+        </plugin>
+    </gazebo>
+
+
+</robot>

@@ -25,6 +25,14 @@
     <!-- <gazebo reference="${prefix}ee_link">
       <selfCollide>true</selfCollide>
     </gazebo> -->
+    <!-- <gazebo reference="ft_sensor">
+      <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="ft_sensor_joint">
+        <material>Gazebo/Blue</material>
+        <provideFeedback>true</provideFeedback>
+        <disableFixedJointLumping>true</disableFixedJointLumping>
+    </gazebo> -->
 
   </xacro:macro>
 
