@@ -8,5 +8,6 @@
 $ cd /your/ros/workspace
 $ catkin_make
 $ source devel/setup.bash
-$ roslaunch sia_manipulator_description sia_manipulator_description_rviz.launch
+$ roslaunch sia_manipulator_description sia_manipulator_description_rviz.launch or roslaunch sia_manipulator_description sia_manipulator_description_rviz.launch
+
 ```
