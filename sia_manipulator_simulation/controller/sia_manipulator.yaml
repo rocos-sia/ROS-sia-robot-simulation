@@ -43,3 +43,64 @@ joint_group_position_controller:
      - wrist_2_joint
      - wrist_3_joint
                                                                   
+Gazebo_ros_control:
+  pid_gains:
+    # these gains are used by the gazebo_ros_control plugin
+    finger_joint:
+      p: 20.0
+      i: 0.1
+      d: 0.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+    # the following gains are used by the gazebo_mimic_joint plugin
+    left_inner_knuckle_joint:
+      p: 20.0
+      i: 0.1
+      d: 0.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+
+    left_inner_finger_joint:
+      p: 20.0
+      i: 0.1
+      d: 0.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+
+    right_outer_knuckle_joint:
+      p: 20.0
+      i: 0.1
+      d: 0.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+
+    right_inner_knuckle_joint:
+      p: 20.0
+      i: 0.1
+      d: 0.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+
+    right_inner_finger_joint:
+      p: 20.0
+      i: 0.1
+      d: 0.0
+      i_clamp: 0.2
+      antiwindup: false
+      publish_state: true
+gripper_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+     - finger_joint
+  constraints:
+      goal_time: 0.6
+      stopped_velocity_tolerance: 0.05
+      finger_joint: {trajectory: 0.01, goal: 0.01}
+  stop_trajectory_duration: 0.5
+  state_publish_rate:  25
+  action_monitor_rate: 10
