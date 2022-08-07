@@ -142,7 +142,7 @@
 
 
     <joint name="gripper_connect_joint" type="fixed">
-        <origin xyz="0.0 0 0.014" rpy="0 0.0 0.0"/>
+        <origin xyz="0.0 0 0.014" rpy="0 0 0.0"/>
         <parent link="ft_sensor"/>
         <child link="gripper_connect"/>
         <axis xyz="0.0 0.0 0.0"/>
@@ -150,7 +150,7 @@
     </joint>
 
     <joint name="gripper_connect" type="fixed">
-        <origin xyz="0.0 0 0.0501" rpy="0 0.0 0.0"/>
+        <origin xyz="0.0 0 0.0501" rpy="0 0 0.0"/>
         <parent link="gripper_connect"/>
         <child link="robotiq_arg2f_base_link"/>
         <axis xyz="0.0 0.0 0.0"/>

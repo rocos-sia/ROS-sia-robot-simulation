@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:macro name="robotiq_arg2f_base_link" params="prefix">
-    <link name="${prefix}robotiq_arg2f_base_link">
+    <!-- <link name="${prefix}robotiq_arg2f_base_link">
       <inertial>
         <origin xyz="8.625E-08 -4.6583E-06 0.03145" rpy="0 0 0" />
         <mass value="0.22652" />
@@ -22,7 +22,28 @@
            <mesh filename="package://sia_manipulator_description/meshes/collision/robotiq_arg2f_base_link.stl" />
         </geometry>
       </collision>
-    </link>
+    </link> -->
+    <link name="${prefix}robotiq_arg2f_base_link">
+      <visual>
+      <origin xyz="0 0 0" rpy="0 -1.5707 0" />
+                <geometry>
+                    <mesh filename="package://sia_manipulator_description/meshes/visual/robotiq_85_base_link.dae"/>
+                </geometry>
+            </visual>
+            <collision>
+                <geometry>
+                    <mesh filename="package://sia_manipulator_description/meshes/collision/robotiq_85_base_link.stl"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="0.636951" />
+                <origin xyz="0.0 0.0 0.0" />
+                <inertia ixx = "0.000380" ixy = "0.000000" ixz = "0.000000"
+                         iyx = "0.000000" iyy = "0.001110" iyz = "0.000000"
+                         izx = "0.000000" izy = "0.000000" izz = "0.001171" />
+            </inertial>
+        </link>
+
   </xacro:macro>
 
   <xacro:macro name="finger_joints" params="prefix fingerprefix reflect">
