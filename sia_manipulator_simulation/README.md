@@ -55,3 +55,6 @@ $ rostopic pub
 $ rosrun controller_mansger spawner <控制器>
 
 ```
+
+## 增添夹爪和摄像头
+因需要用到很多插件，所以插件统一放置到

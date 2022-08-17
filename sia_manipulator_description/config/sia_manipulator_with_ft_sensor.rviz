@@ -64,6 +64,52 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
+        cammera_connect:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        d435_bottom_screw_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        d435_color_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        d435_color_optical_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        d435_depth_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        d435_depth_optical_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        d435_left_ir_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        d435_left_ir_optical_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        d435_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        d435_right_ir_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        d435_right_ir_optical_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         duco_base_link:
           Alpha: 1
           Show Axes: false
@@ -79,6 +125,66 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        gripper_connect:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_inner_finger:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_inner_finger_pad:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_inner_knuckle:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_outer_finger:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_outer_knuckle:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_inner_finger:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_inner_finger_pad:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_inner_knuckle:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_outer_finger:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_outer_knuckle:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        robotiq_arg2f_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         shoulder:
           Alpha: 1
           Show Axes: false
@@ -89,6 +195,10 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        world:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         wrist_1:
           Alpha: 1
           Show Axes: false
@@ -115,15 +225,63 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: false
+        cammera_connect:
+          Value: false
+        d435_bottom_screw_frame:
+          Value: false
+        d435_color_frame:
+          Value: false
+        d435_color_optical_frame:
+          Value: false
+        d435_depth_frame:
+          Value: false
+        d435_depth_optical_frame:
+          Value: false
+        d435_left_ir_frame:
+          Value: false
+        d435_left_ir_optical_frame:
+          Value: false
+        d435_link:
+          Value: false
+        d435_right_ir_frame:
+          Value: false
+        d435_right_ir_optical_frame:
+          Value: false
         duco_base_link:
           Value: false
         forearm:
           Value: false
         ft_sensor:
-          Value: true
+          Value: false
+        gripper_connect:
+          Value: false
+        left_inner_finger:
+          Value: false
+        left_inner_finger_pad:
+          Value: false
+        left_inner_knuckle:
+          Value: false
+        left_outer_finger:
+          Value: false
+        left_outer_knuckle:
+          Value: false
+        right_inner_finger:
+          Value: false
+        right_inner_finger_pad:
+          Value: false
+        right_inner_knuckle:
+          Value: false
+        right_outer_finger:
+          Value: false
+        right_outer_knuckle:
+          Value: false
+        robotiq_arg2f_base_link:
+          Value: false
         shoulder:
           Value: false
         upper_arm:
+          Value: false
+        world:
           Value: false
         wrist_1:
           Value: false
@@ -138,15 +296,46 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        duco_base_link:
-          shoulder:
-            upper_arm:
-              forearm:
-                wrist_1:
-                  wrist_2:
-                    wrist_3:
-                      ft_sensor:
-                        {}
+        world:
+          duco_base_link:
+            shoulder:
+              upper_arm:
+                forearm:
+                  wrist_1:
+                    wrist_2:
+                      wrist_3:
+                        cammera_connect:
+                          d435_bottom_screw_frame:
+                            d435_link:
+                              d435_depth_frame:
+                                d435_color_frame:
+                                  d435_color_optical_frame:
+                                    {}
+                                d435_depth_optical_frame:
+                                  {}
+                                d435_left_ir_frame:
+                                  d435_left_ir_optical_frame:
+                                    {}
+                                d435_right_ir_frame:
+                                  d435_right_ir_optical_frame:
+                                    {}
+                          ft_sensor:
+                            gripper_connect:
+                              robotiq_arg2f_base_link:
+                                left_inner_knuckle:
+                                  {}
+                                left_outer_knuckle:
+                                  left_outer_finger:
+                                    left_inner_finger:
+                                      left_inner_finger_pad:
+                                        {}
+                                right_inner_knuckle:
+                                  {}
+                                right_outer_knuckle:
+                                  right_outer_finger:
+                                    right_inner_finger:
+                                      right_inner_finger_pad:
+                                        {}
       Update Interval: 0
       Value: true
   Enabled: true
@@ -213,5 +402,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1267
-  X: 159
-  Y: 27
+  X: 3091
+  Y: 155

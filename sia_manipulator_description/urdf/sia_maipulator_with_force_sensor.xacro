@@ -3,9 +3,9 @@
        name="sia_manipulator_with_force_sensor" >
   <xacro:arg name="use_nominal_extrinsics" default="true"/>
   <xacro:include filename="$(find sia_manipulator_description)/urdf/_d455.urdf.xacro" />
-   <xacro:include filename="$(find sia_manipulator_description)/urdf/robotiq_arg2f_85_model_macro.xacro" />
-  <xacro:robotiq_arg2f_85 prefix=""/>
-
+   <!-- <xacro:include filename="$(find sia_manipulator_description)/urdf/robotiq_arg2f_85_model_macro.xacro" />
+  <xacro:robotiq_arg2f_85 prefix=""/> -->
+    <xacro:include filename="$(find sia_manipulator_description)/urdf/robotiq_85_gripper.urdf.xacro" />
     <xacro:include filename="$(find sia_manipulator_description)/urdf/depthcam.xacro"/>
 
 
@@ -149,13 +149,18 @@
         <limit effort="140.0" lower="${-pi}" upper="${pi}" velocity="${165*pi/180}"/>
     </joint>
 
-    <joint name="gripper_connect" type="fixed">
+    <!-- <joint name="gripper_connect" type="fixed">
         <origin xyz="0.0 0 0.0501" rpy="0 0 0.0"/>
         <parent link="gripper_connect"/>
         <child link="robotiq_arg2f_base_link"/>
+        
+        
         <axis xyz="0.0 0.0 0.0"/>
         <limit effort="140.0" lower="${-pi}" upper="${pi}" velocity="${165*pi/180}"/>
-    </joint>
+    </joint> -->
+    <xacro:robotiq_85_gripper prefix="" parent="gripper_connect" >
+        <origin xyz="0 0 0.0501" rpy="0 -1.5707 0"/>
+    </xacro:robotiq_85_gripper>
 
 
 
@@ -218,6 +223,34 @@
       </sensor>
     </gazebo>
  -->
+
+ <!-- 
+     简单测试夹取
+  -->
+  <gazebo>
+   <plugin name="gazebo_grasp_fix" filename="libgazebo_grasp_fix.so">
+        <arm>
+           <arm_name>sia_manipulator_with_force_sensor_gripper</arm_name>
+           <!--与夹持器末端 link 相连的 link 、,可以配置多个-->
+                <palm_link>robotiq_85_left_inner_knuckle_link</palm_link>
+                
+                <!--直接与抓取物体接触的 link ,与 palm_link 之间不能存在其他的 link-->
+                <gripper_link>robotiq_85_left_finger_tip_link</gripper_link>
+                <palm_link>robotiq_85_right_inner_knuckle_link</palm_link>
+                <gripper_link>robotiq_85_right_finger_tip_link</gripper_link>
+
+        </arm>
+       <forces_angle_tolerance>150</forces_angle_tolerance>
+       <update_rate>130</update_rate>
+       <grip_count_threshold>2</grip_count_threshold>
+       <max_grip_count>8</max_grip_count>
+       <release_tolerance>0.01</release_tolerance>
+       <disable_collisions_on_attach>true</disable_collisions_on_attach>
+       <contact_topic>__default_topic__</contact_topic>
+
+    </plugin>
+</gazebo>
+
 
 
 </robot>
