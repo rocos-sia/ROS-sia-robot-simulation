@@ -57,4 +57,12 @@ $ rosrun controller_mansger spawner <控制器>
 ```
 
 ## 增添夹爪和摄像头
-因需要用到很多插件，所以插件统一放置到
+```bash
+$ cd /your/ros/workspace
+$ catkin_make
+$ source devel/setup.bash
+$ roslaunch sia_manipulator_simulation sia_manipulator_sim_on_gazebo.launch
+
+```
+随后通过关节角和移动方块位置可以实现夹取，目前只测试了红色方块  
+arm_controller控制关节角从上到下：[-0.614356，-1.5707，-0.188496，-0.753982.1.5707，0]
