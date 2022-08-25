@@ -138,13 +138,18 @@
       </visual>
     </link>
     <joint name="${laser_name}_joint" type="fixed">
-      <origin xyz="0 0.67006 -0.529" rpy="0 0 0" />
+      <origin xyz="0 0.67006 -0.529" rpy="0 0 1.5707" />
+       <!-- <origin xyz="0 0.67006 -0.529" rpy="0 0 1.5707" /> -->
       <parent link="base_link" />
       <child link="${laser_name}_link" />
       <axis xyz="0 0 -1" />
       <limit lower="-${PI}" upper="${PI}" effort="0" velocity="0" />
     </joint>
   </xacro:macro>
+
+
+
+
 
   <link name="base_link">
     <inertial>
@@ -192,4 +197,18 @@
   <xacro:universial_wheel_func wheel_name="right_rear" flag="-1" />
   <xacro:universial_wheel_func wheel_name="left_rear" flag="-1" />
   <xacro:laser_func laser_name="laser" flag="-1" />
+
+  <link name="base_footprint">
+          <visual>
+              <geometry>
+                  <sphere radius="0.001" />
+              </geometry>
+          </visual>
+      </link>
+  <joint name="base_link2base_footprint" type="fixed">
+      <parent link="base_footprint" />
+      <child link="base_link"/>
+      <origin xyz="0 0 0.679"  rpy="0 0 -1.5707"/>
+  </joint>
+  
 </robot>

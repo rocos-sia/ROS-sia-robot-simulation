@@ -6,6 +6,8 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
+        - /TF1
+        - /TF1/Frames1
       Splitter Ratio: 0.5
     Tree Height: 719
   - Class: rviz/Selection
@@ -62,6 +64,11 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
+        base_footprint:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         base_link:
           Alpha: 1
           Show Axes: false
@@ -128,6 +135,66 @@ Visualization Manager:
       Update Interval: 0
       Value: true
       Visual Enabled: true
+    - Class: rviz/TF
+      Enabled: true
+      Frame Timeout: 15
+      Frames:
+        All Enabled: false
+        base_footprint:
+          Value: true
+        base_link:
+          Value: false
+        laser_link:
+          Value: false
+        left_front:
+          Value: false
+        left_front_wheel:
+          Value: false
+        left_rear:
+          Value: false
+        left_rear_wheel:
+          Value: false
+        left_wheel:
+          Value: false
+        right_front:
+          Value: false
+        right_front_wheel:
+          Value: false
+        right_rear:
+          Value: false
+        right_rear_wheel:
+          Value: false
+        right_wheel:
+          Value: false
+      Marker Alpha: 1
+      Marker Scale: 1
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: true
+      Tree:
+        base_footprint:
+          base_link:
+            laser_link:
+              {}
+            left_front:
+              left_front_wheel:
+                {}
+            left_rear:
+              left_rear_wheel:
+                {}
+            left_wheel:
+              {}
+            right_front:
+              right_front_wheel:
+                {}
+            right_rear:
+              right_rear_wheel:
+                {}
+            right_wheel:
+              {}
+      Update Interval: 0
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -172,9 +239,9 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.6053982973098755
+      Pitch: -0.11960151791572571
       Target Frame: <Fixed Frame>
-      Yaw: 0.6004005074501038
+      Yaw: 4.658571720123291
     Saved: ~
 Window Geometry:
   Displays:
@@ -192,5 +259,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1535
-  X: 608
-  Y: 261
+  X: 2928
+  Y: 105
