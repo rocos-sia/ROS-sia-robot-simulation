@@ -1,0 +1,15 @@
+<!-- 保存建立好的地图 -->
+<launch>
+    <arg name="filename" value="$(find sia_agv_simulation)/map/nav" />
+    <node name="map_save" pkg="map_server" type="map_saver" args="-f $(arg filename)" />
+</launch>
+
+<!-- 地图读取 -->
+<!-- 
+    <launch>
+    
+    <arg name="map" default="nav.yaml" />
+   
+    <node name="map_server" pkg="map_server" type="map_server" args="$(find mycar_nav)/map/$(arg map)"/>
+</launch>
+ -->

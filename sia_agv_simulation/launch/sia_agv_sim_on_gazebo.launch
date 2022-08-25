@@ -13,8 +13,14 @@
   <!-- <rosparam file="$(find sia_agv_simulation)/config/sia_agv_controller.yaml" command="load"/> -->
   <!-- 将 Urdf 文件的内容加载到参数服务器 -->
   <param name="robot_description" command="$(find xacro)/xacro $(find sia_agv_simulation)/urdf/sia_agv_gazebo.urdf.xacro" />
+
+  <!--  -->
+
+
+
+  <!--  -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="$(find sia_agv_simulation)/worlds/box.world"/>
+    <arg name="world_name" value="$(find sia_agv_simulation)/worlds/slam.world"/>
     <arg name="debug" value="$(arg debug)" />
     <arg name="gui" value="$(arg gui)" />
     <arg name="paused" value="false"/>
@@ -28,13 +34,12 @@
 
 
   <!--Load controllers-->
-  <!-- <node name="spawner" pkg="controller_manager" type="spawner" respawn="false"
-    output="screen" ns="/sia_agv" args="joint_state_controller "/>  -->
+  <!-- <node name="spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/sia_agv" args="joint_state_controller "/>  -->
 
 
   <!-- 启动 gazebo -->
 
-
+  
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" ns="/sia_agv" respawn="false" output="screen">
     <!-- <param name="publish_frequency" value="20.0"/> -->
     <!-- <remap from="/joint_states" to="/sia_agv/joint_states" /> -->
@@ -42,8 +47,28 @@
 
 
   <!-- 在 gazebo 中显示机器人模型 -->
-  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -model sia_agv -param robot_description -x $(arg x) -y $(arg y) -z $(arg z) -Y $(arg yaw)" />
+  <!-- <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -model sia_agv -param robot_description -x $(arg x) -y $(arg y) -z $(arg z) -Y $(arg yaw)" /> -->
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -model sia_agv -param robot_description " />
 
   <node pkg="rviz" type="rviz" name="rviz" args="-d $(find sia_agv_simulation)/config/sia_agv_sim.rviz" output="screen"/>
+
+  <!-- slam and navigation -->
+
+ 
+  <nbode pkg="tf" type="static_transform_publisher" name="map_odom_broadcaster" args="0 0 0 0 0 /map /odom 100"/>
+
+  <!-- <nbode pkg="tf" type="static_transform_publisher" name="laser_base_broadcaster" args="0 0 0 0 0 1.5707 /scan /base_footprint 100"/> -->
+  <include file="$(find sia_agv_simulation)/launch/sia_agv_move_base.launch">
+  </include>
+  <include file="$(find sia_agv_simulation)/launch/sia_agv_amcl_diff.launch">
+
+  </include>
+  <include file="$(find sia_agv_simulation)/launch/sia_agv_slam.launch">
+
+  </include>
+
+  <!-- <include file="$(find sia_agv_simulation)/launch/sia_agv_navigation.launch">
+    
+  </include> -->
 
 </launch>
