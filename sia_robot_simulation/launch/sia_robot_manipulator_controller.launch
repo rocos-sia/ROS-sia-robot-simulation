@@ -8,6 +8,6 @@
   <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args=" joint_state_controller arm_controller"/>
 
   <node name="jnt_traj_control" pkg="rqt_joint_trajectory_controller" type="rqt_joint_trajectory_controller" args="--force-discover" respawn="false" output="screen" />
-
+  <!-- <include file="$(find sia_manipulator_simulation)/launch/sia_manipulator_sim_controller.launch"/> -->
 </launch>
 

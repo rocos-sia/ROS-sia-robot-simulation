@@ -24,6 +24,7 @@ sudo apt install ros-noetic-teleop-twist-keyboard
      rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=my_cmd_vel(发布在不同的话题上)
      rosrun teleop_twist_keyboard teleop_twist_keyboard.py _repeat_rate:=10.0(发布的重复频率)
      rosrun teleop_twist_keyboard teleop_twist_keyboard.py _key_timeout:=0.6(按键超时:如果在 0.6 秒内未收到按键，则停止机器人)
+     rosrun teleop_twist_keyboard teleop_twist_keyboard.py /cmd_vel:=/sia_agv/cmd_vel _key_timeout:=0.6 _speed:=0.1 _turn:=0.1
 ### 5.teleop_twist_keyboard详细介绍
 http://wiki.ros.org/teleop_twist_keyboard
 ### 6.源码安装
