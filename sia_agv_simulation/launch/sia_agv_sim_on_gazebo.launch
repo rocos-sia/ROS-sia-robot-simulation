@@ -46,6 +46,7 @@
   </node>
 
 
+    
   <!-- 在 gazebo 中显示机器人模型 -->
   <!-- <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -model sia_agv -param robot_description -x $(arg x) -y $(arg y) -z $(arg z) -Y $(arg yaw)" /> -->
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -model sia_agv -param robot_description " />
@@ -58,17 +59,30 @@
   <nbode pkg="tf" type="static_transform_publisher" name="map_odom_broadcaster" args="0 0 0 0 0 /map /odom 100"/>
 
   <!-- <nbode pkg="tf" type="static_transform_publisher" name="laser_base_broadcaster" args="0 0 0 0 0 1.5707 /scan /base_footprint 100"/> -->
-  <include file="$(find sia_agv_simulation)/launch/sia_agv_move_base.launch">
+
+
+  <!-- pingbi -->
+  <!-- <include file="$(find sia_agv_simulation)/launch/sia_agv_move_base.launch">
   </include>
   <include file="$(find sia_agv_simulation)/launch/sia_agv_amcl_diff.launch">
 
   </include>
   <include file="$(find sia_agv_simulation)/launch/sia_agv_slam.launch">
 
-  </include>
-
+  </include> -->
+<!-- pingbi -->
   <!-- <include file="$(find sia_agv_simulation)/launch/sia_agv_navigation.launch">
     
   </include> -->
+
+<rosparam file="$(find sia_agv_simulation)/config/sia_agv_controller.yaml" command="load"/> 
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+      output="screen" args=" joint_state_controller  tube_controller"/>
+    <node name="jnt_traj_control" pkg="rqt_joint_trajectory_controller" type="rqt_joint_trajectory_controller" args="--force-discover" respawn="false" output="screen" />
+  
+  
+
+
+
 
 </launch>

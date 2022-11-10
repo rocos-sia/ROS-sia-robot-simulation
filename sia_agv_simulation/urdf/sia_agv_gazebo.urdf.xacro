@@ -1,7 +1,7 @@
 <robot name="sia_agv3" xmlns:xacro="http://wiki.ros.org/xacro">
     <xacro:include filename="$(find sia_agv_description)/urdf/sia_agv_on_rviz.urdf.xacro" />
     <xacro:include filename="$(find sia_agv_simulation)/urdf/sia_agv_controller.urdf.xacro" />
-    <!-- <xacro:include filename="$(find sia_agv_simulation)/urdf/sia_laser.urdf.xacro" /> -->
+    
 
 
 
