@@ -198,7 +198,7 @@
   <xacro:universial_wheel_func wheel_name="left_rear" flag="-1" />
   <xacro:laser_func laser_name="laser" flag="-1" />
 
-  <link name="base_footprint">
+  <!-- <link name="base_footprint">
           <visual>
               <geometry>
                   <sphere radius="0.001" />
@@ -209,6 +209,6 @@
       <parent link="base_footprint" />
       <child link="base_link"/>
       <origin xyz="0 0 0.679"  rpy="0 0 -1.5707"/>
-  </joint>
+  </joint> -->
   
 </robot>

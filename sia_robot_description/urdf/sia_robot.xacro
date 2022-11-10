@@ -6,7 +6,7 @@
 
     <!-- arm -->
   <!-- <xacro:include filename="$(find sia_manipulator_description)/urdf/sia_manipulator.xacro" /> -->
-   <xacro:include filename="$(find sia_manipulator_description)/urdf/sia_maipulator_with_force_sensor.xacro" />
+  <xacro:include filename="$(find sia_manipulator_description)/urdf/sia_maipulator_with_force_sensor.xacro" />
 
   <xacro:include filename="$(find sia_agv_description)/urdf/sia_agv_on_rviz.urdf.xacro" />
 

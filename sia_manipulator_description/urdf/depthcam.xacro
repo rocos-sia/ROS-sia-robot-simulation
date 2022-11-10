@@ -39,6 +39,10 @@
         <geometry>
           <mesh filename="package://sia_manipulator_description/meshes/realsense_d435.stl" />
         </geometry>
+        <material
+            name="gray">
+            <color rgba="0.9 0.9 0.9 1" />
+        </material>
       </visual>
       <collision>
         <origin xyz="0 ${-d435_cam_depth_py} 0" rpy="0 0 0"/>

@@ -32,7 +32,7 @@
       <color rgba="0.588 0.588 0.588 1"/>
   </material>
   <material name ="Red">
-      <color rgba="1.00 0 0 1.0"/>
+      <color rgba="0 0 0 1.0"/>
     <xacro:property name="PI" value="3.1415926" />
   </material>
   <!-- base_link -->
